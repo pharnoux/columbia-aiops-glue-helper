@@ -56,7 +56,7 @@ class GlueDevEndpoint():
             EndpointName=self.dev_endpoint_name,
             RoleArn=self.dev_endpoint_role,
             PublicKey=self.dev_endpoint_pub_rsa,
-            NumberOfNodes=3,
+            NumberOfNodes=2,
             ExtraPythonLibsS3Path=self.python_library,
             GlueVersion="1.0",
             Arguments={"GLUE_PYTHON_VERSION": "3"})
