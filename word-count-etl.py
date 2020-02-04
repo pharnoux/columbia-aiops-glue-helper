@@ -18,7 +18,7 @@ job.init(args['JOB_NAME'], args)
 ## @args: [database = "twitter-data", table_name = "twitter_state_selected", transformation_ctx = "datasource0"]
 ## @return: datasource0
 ## @inputs: []
-datasource0 = glueContext.create_dynamic_frame.from_catalog(database = "twitter-data", table_name = "twitter_state_selected", transformation_ctx = "datasource0")
+datasource0 = glueContext.create_dynamic_frame.from_catalog(database = <your_database>, table_name = <your_table>, transformation_ctx = "datasource0")
 ## @type: ApplyMapping
 ## @args: [mapping = [("id", "long", "id", "long"), ("text", "string", "text", "string")], transformation_ctx = "applymapping1"]
 ## @return: applymapping1
@@ -45,5 +45,5 @@ counts_dynamicframe = DynamicFrame.fromDF(counts_df.toDF(), glueContext, "counts
 ## @args: [connection_type = "s3", connection_options = {"path": "s3://aiops-2020/data-lake/pierre"}, format = "csv", transformation_ctx = "datasink2"]
 ## @return: datasink2
 ## @inputs: [frame = applymapping1]
-datasink2 = glueContext.write_dynamic_frame.from_options(frame = counts_dynamicframe, connection_type = "s3", connection_options = {"path": "s3://aiops-2020/data-lake/pierre"}, format = "csv", transformation_ctx = "datasink2")
+datasink2 = glueContext.write_dynamic_frame.from_options(frame = counts_dynamicframe, connection_type = "s3", connection_options = {"path": <your_path_to_s3>}, format = "csv", transformation_ctx = "datasink2")
 job.commit()
