@@ -27,13 +27,13 @@ Copy pasting `args = getResolvedOptions(sys.argv, ['JOB_NAME'])` will produce
 ```
 awsglue.utils.GlueArgumentError: the following arguments are required: --JOB_NAME
 ```
-as we are not using Glue. But so no arguments are necessary.
+as we are not using Glue directly. So no arguments are necessary.
 
 Copy pasting `sc = SparkContext()` will produce
 ```
 ValueError: Cannot run multiple SparkContexts at once; existing SparkContext(app=PySparkShell, master=yarn) created by <module> at /usr/lib/spark/python/pyspark/shell.py:40 
 ```
-but Spark is already initialized
+but Spark is already initialized.
 
 Copy pasting `job.init(args['JOB_NAME'], args)` will produce
 ```
@@ -41,7 +41,7 @@ NameError: name 'args' is not defined
 ```
 but again we are not using arguments
 
-Reading the table first might produce
+Reading the first dataset might produce
 ```
 2020-02-08 23:11:19,216 ERROR [Thread-5] util.UserData (UserData.java:getUserData(70)) - Error encountered while try to get user data
 java.io.IOException: File '/var/aws/emr/userData.json' cannot be read
