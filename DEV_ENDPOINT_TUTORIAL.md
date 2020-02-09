@@ -21,7 +21,7 @@ Create and connect to the endpoint using the `glue_dev_endpoint.py` script.
 The dev endpoint shell is a python3 shell with a Spark backend.
 You should be able to copy / paste the entire script that Glue generated into it.
 
-Hitting the following error messages are not problematic:
+Hitting the following error messages is not problematic:
 
 Copy pasting `args = getResolvedOptions(sys.argv, ['JOB_NAME'])` will produce
 ```
